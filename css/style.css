@@ -1,0 +1,462 @@
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: white;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgba(0, 153, 204, 0.6);
+    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgba(0, 153, 204, 0.8);
+    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: rgba(0, 153, 204, 1);
+    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
+    animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+}
+ 
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(0deg);  /* IE 9 */
+        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+    100% {
+        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
+        -ms-transform: rotate(360deg);  /* IE 9 */
+        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+    }
+}
+
+
+
+* {
+    box-sizing: border-box; }
+/*TIMELINE*/
+.timeline {
+    position: relative;
+    overflow: auto;
+    width: 100%;
+    margin-top: 40px; }
+/*TRAIT*/
+.timeline hr {
+    margin: 0 0 20px 0; }
+/*Ligne centrale*/  
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: 0 auto;
+    height: 100%;
+    width: 4px;
+    background-color: #6a6a6a; }
+/*Titre h2 ligne centrale*/
+.timeline h2 {
+    margin: 0 auto;
+    width: 130px;
+    color: white;
+    background: #6a6a6a;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    z-index: 2; }
+/*Titre h3 ligne centrale*/
+.timeline h3 {
+    color: inherit;
+    font-weight: 300; }
+/*Items*/
+.timeline .timeline-items {
+    list-style-type: none;
+    overflow: hidden;
+    padding-top: 110px;
+    padding-left: 0; }
+/*Item*/
+.timeline .timeline-items .timeline-item {
+    position: relative;
+    margin-bottom: 100px;
+    left: -10px;
+    padding: 20px;
+/*    background-color: red;*/
+    width: 45%; }
+/*Titre Item*/
+.timeline .timeline-items .timeline-item h3 {
+    font-weight: 700; }
+/*Item caché*/
+.timeline .timeline-items .timeline-item.is-hidden {
+    visibility: hidden; }
+/*Lien dans item*/
+.timeline .timeline-items .timeline-item a {
+    font-weight: 700; }
+/*Date Item*/
+.timeline .timeline-items .timeline-item time::before {
+    font-family: FontAwesome, sans-serif;
+    content: '\f017';
+    margin-right: 10px; }
+
+
+/*Element Gauche*/
+.timeline .timeline-items .timeline-item {
+    background-color: rgba(0, 153, 204, 0.6);
+    color: white; }
+/*TRIANGLE*/
+.timeline .timeline-items .timeline-item::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: -1em;
+    top: 0; 
+    border-top: 1em solid rgba(0, 153, 204,0.6);
+    border-right: 1em solid transparent;}
+/*PUCE GAUCHE*/
+.timeline .timeline-items .timeline-item::after {
+    content: '';
+    background: #6a6a6a;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    border-radius: 100%;
+    left: calc(100% + 10.4%); 
+}
+/* TRAIT*/
+.timeline .timeline-items .timeline-item hr {
+    border-top: 1px solid white;
+}
+/* LIEN */
+.timeline .timeline-items .timeline-item a {
+    color: #1759a2; 
+}
+
+
+/*Element droite*/
+.timeline .timeline-items .timeline-item.inverted {
+    background-color: rgba(0, 153, 204,0.6);
+    color: white;
+    position: relative;
+    left: 54%;
+    text-align: right; 
+}
+.timeline .timeline-items .timeline-item.inverted::before {
+    
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -1em;
+    top: 0; 
+    border-top: 1em solid rgba(0, 153, 204, 0.6);
+    border-left: 1em solid transparent;
+    border-right: none;}
+/*PUCE*/
+.timeline .timeline-items .timeline-item.inverted::after {
+    content: '';
+    background: #6a6a6a;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    border-radius: 100%;
+    left: calc(-8.78% - 13px); 
+}
+.timeline .timeline-items .timeline-item.inverted hr {
+    border-top: 1px solid white; }
+.timeline .timeline-items .timeline-item.inverted a {
+    color: white; }
+
+/*ELEMENT CENTRE*/
+.timeline .timeline-items .timeline-item.centered {
+    position: relative;
+    text-align: justify;
+    width: 100%; 
+    background-color: rgba(0, 153, 204, 0.6);
+    color: white; }
+.timeline .timeline-items .timeline-item.centered::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: calc(50% - 4px);
+    top: -12px;
+    border-top: 0;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-bottom: 1em solid rgba(0, 153, 204, 0.6);  }
+.timeline .timeline-items .timeline-item.centered::after {
+   display: none;
+}
+.timeline .timeline-items .timeline-item.centered hr {
+    border-top: 1px solid white; }
+.timeline .timeline-items .timeline-item.centered a {
+    color: #1759a2; }
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #222222;
+}
+/*Panels*/
+.panel-default {
+    border-color: #D1D1D1;
+}
+.panel-default > .panel-heading {
+    color: #333;
+    background-color: #E8E8E8;
+    border-bottom: 2px solid rgba(0, 153, 204, 0.8);
+}
+#retourForm {
+    position: fixed;
+    display: block;
+    bottom: 0;
+    top: 0;
+    margin-bottom:auto;
+    margin-top: auto;
+    color: rgba(255,255,255, 1);;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    max-height: 120px;
+    font-size: 2em;    
+    padding: 20px;
+    text-align: center;
+    display: none;
+    background-color: rgba(22, 22, 22, 0.5);
+    border-radius: 5px;
+    z-index: 10;
+    border: rgba(35, 191, 73, 0.8) 2px solid;
+}
+
+:root{
+    animation-delay: 2s;
+   -webkit-animation-delay: 2s;
+}
+/*Annimations*/
+.progress-bar {
+    background-color: rgba(0, 153, 204, 0.6);
+   animation-delay: 2s;
+   -webkit-animation-delay: 2s;
+    
+}
+
+#progress1{
+    
+   -webkit-animation: progress1 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress1 2s 1; 
+}
+@-webkit-keyframes progress1 {
+    from {width: 0%;}
+    to {width: 70%;}
+}
+
+@keyframes progress1 {
+    from {width: 0%;}
+    to {width: 70%;}
+}
+#progress2{
+   -webkit-animation: progress2 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress2 2s 1; 
+}
+@-webkit-keyframes progress2 {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
+@keyframes progress2 {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+#progress3{
+    -webkit-animation: progress3 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress3 2s 1;
+}
+@-webkit-keyframes progress3 {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+
+@keyframes progress3 {
+    from {width: 0%;}
+    to {width: 50%;}
+}
+#progress4{
+   -webkit-animation: progress4 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress4 2s 1; 
+}
+@-webkit-keyframes progress4 {
+    from {width: 0%;}
+    to {width: 30%;}
+}
+
+@keyframes progress4 {
+    from {width: 0%;}
+    to {width: 30%;}
+}
+#progress5{
+    -webkit-animation: progress5 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress5 2s 1;
+}
+@-webkit-keyframes progress5 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+
+@keyframes progress5 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+#progress6{
+    -webkit-animation: progress6 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress6 2s 1;
+}
+@-webkit-keyframes progress6 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+
+@keyframes progress6 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+#progress7{
+    -webkit-animation: progress7 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress7 2s 1;
+}
+@-webkit-keyframes progress7 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+
+@keyframes progress7 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+#progress8{
+    -webkit-animation: progress8 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress8 2s 1;
+}
+@-webkit-keyframes progress8 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+
+@keyframes progress8 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+#progress9{
+    -webkit-animation: progress9 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress9 2s 1;
+}
+@-webkit-keyframes progress9 {
+    from {width: 0%;}
+    to {width: 30%;}
+}
+
+@keyframes progress9 {
+    from {width: 0%;}
+    to {width: 30%;}
+}
+#progress10{
+    -webkit-animation: progress10 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress10 2s 1;
+}
+@-webkit-keyframes progress10 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+
+@keyframes progress10 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+#progress11{
+    -webkit-animation: progress11 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress11 2s 1;
+}
+@-webkit-keyframes progress11 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+
+@keyframes progress11 {
+    from {width: 0%;}
+    to {width: 40%;}
+}
+#progress12{
+    -webkit-animation: progress12 2s 1; /* Safari 4.0 - 8.0 */
+    animation: progress12 2s 1;
+}
+@-webkit-keyframes progress12 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+
+@keyframes progress12 {
+    from {width: 0%;}
+    to {width: 60%;}
+}
+
+
+    
